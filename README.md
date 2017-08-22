@@ -1,2 +1,2 @@
 # MateApp
-Nothing to see here!
+Personnal counter for public use!
