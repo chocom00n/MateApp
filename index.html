@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Bottle Counter</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+
+    <div id="content"></div>
+
+    <script type="text/javascript">
+      var numberMateGeeks = {
+        "Nicolas": 0,
+        "Loic"   : 0,
+        "Hadi"   : 0
+      };
+
+      for (let firstname in numberMateGeeks) {
+
+        // crée un nouvel élément button
+        // et lui donne une valeur
+        const newBtn = document.createElement("button");
+        const newBtnValue = document.createTextNode(firstname);
+        newBtn.appendChild(newBtnValue) //ajoute le contenu au button
+        newBtn.onclick = function() {
+          addMate(this);
+        }
+        // ajoute l'élément qui vient d'être créé et son contenu au DOM
+        const content = document.getElementById("content");
+        content.appendChild(newBtn);
+
+        paragraph = document.createElement("p")
+        myspan = document.createElement("span")
+        myspan.setAttribute("id", "numberMate"+firstname);
+        myspanValue = document.createTextNode(numberMateGeeks[firstname]);
+        myspan.appendChild(myspanValue) //ajoute le contenu au button
+
+        paragraph.appendChild(myspan)
+        content.appendChild(paragraph)
+
+      }
+
+      function addMate(clickedelem) {
+        geek = clickedelem.innerHTML
+        numberMateGeeks[geek] += 1;
+        document.getElementById("numberMate"+geek).innerHTML = numberMateGeeks[geek];
+      };
+
+    </script>
+  </body>
+</html>
